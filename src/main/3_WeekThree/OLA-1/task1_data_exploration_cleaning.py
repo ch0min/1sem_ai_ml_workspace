@@ -97,6 +97,8 @@ def plot_binary_outliers(dataset, col, outlier_col):
         reset_index (bool): whether to reset the index for plotting
     """
 
+    # dataset.dropna()
+
     fig, ax = plt.subplots(figsize=(15, 6))
 
     plt.xlabel("Index")
@@ -119,6 +121,8 @@ def plot_binary_outliers(dataset, col, outlier_col):
         shadow=True,
     )
 
+    plt.savefig("./figures/outliers.png")
+
 
 # Plot single column
 plot_binary_outliers(dataset=dataset, col=col, outlier_col=col + "_outlier")
@@ -137,6 +141,7 @@ def age_distribution():
     plt.xlabel("Age")
     plt.ylabel("Frequency")
     plt.grid(False)
+    plt.savefig("./figures/age_distribution.png")
     plt.show()
 
 
@@ -209,6 +214,7 @@ def data_visualization_plots():
     plt.title("Age related to Cause of death - Top 10")
     plt.xlabel("Cause of death")
     plt.ylabel("Age")
+    plt.savefig("./figures/age_related_to_cod.png")
     plt.show()
 
     # Most occuring nationalities
@@ -220,6 +226,7 @@ def data_visualization_plots():
     plt.title("Distribution of Nationalities")
     plt.xlabel("Count")
     plt.ylabel("Nationality")
+    plt.savefig("./figures/most_occuring_nationalities.png")
     plt.show()
 
     # Most common causes of death
@@ -231,6 +238,7 @@ def data_visualization_plots():
     plt.title("Cause of deaths")
     plt.xlabel("Count")
     plt.ylabel("Cause of death")
+    plt.savefig("./figures/most_common_causes_of_death.png")
     plt.show()
 
 
