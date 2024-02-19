@@ -240,6 +240,15 @@ def data_visualization_plots():
     plt.title("Age related to Cause of death - Top 10")
     plt.xlabel("Cause of death")
     plt.ylabel("Age")
+
+    plt.legend(
+        ["Age of death", "Mean age of each cause of death"],
+        loc="upper center",
+        ncol=2,
+        fancybox=True,
+        shadow=True,
+    )
+
     plt.savefig("./figures/age_related_to_cod.png")
     plt.show()
 
