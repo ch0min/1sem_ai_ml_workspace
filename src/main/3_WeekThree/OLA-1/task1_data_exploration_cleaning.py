@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import pickle
 
 # ************************************************************** #
 #                                                                #
@@ -22,7 +22,7 @@ import seaborn as sns
 # 2. Data Exploration
 # --------------------------------------------------------------
 
-me_climbing_deaths = pd.read_csv("./me_climbing_deaths.csv")
+me_climbing_deaths = pd.read_csv("../OLA-1/data/raw/me_climbing_deaths.csv")
 
 df = me_climbing_deaths
 
@@ -243,3 +243,6 @@ def data_visualization_plots():
 
 
 data_visualization_plots()
+
+with open("./data/interim/task1_data_processed.pkl", "wb") as file:
+    pickle.dump("./task1_data_exploration_cleaning.py", file)
