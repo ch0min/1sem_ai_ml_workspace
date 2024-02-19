@@ -70,7 +70,7 @@ def mark_outliers_iqr(dataset, col):
     A common method is to use the Interquartile Range (IQR),
     which is the range between the first quartile (25%) and the third quartile (75%)
     of the data. Outliers are often considered as data points that lie outside 1.5 times
-    the IQR above the third quartile and below the first quartile.
+    the IQR below the first quartile and above the third quartile.
 
     Args:
         dataset (pd.DataFrame): The dataset
