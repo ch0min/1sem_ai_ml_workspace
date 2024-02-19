@@ -222,6 +222,9 @@ def data_visualization_plots():
 
     plt.figure(figsize=(20, 8))
     sns.scatterplot(x="Cause of death", y="Age", data=df_limited_cod, alpha=0.6)
+
+    mean_ages = df_limited_cod.groupby("Cause of death")["Age"].mean()
+
     sns.lineplot(
         x="Cause of death",
         y="Age",
@@ -230,6 +233,9 @@ def data_visualization_plots():
         ci=None,
         color="red",
     )
+
+    plt.scatter(mean_ages.index, mean_ages.values, color="red", s=100)
+
     plt.xticks(rotation=45, ha="right")
     plt.title("Age related to Cause of death - Top 10")
     plt.xlabel("Cause of death")
