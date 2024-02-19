@@ -47,6 +47,20 @@ df.tail()
 ### DROP EXTREME OUTLIERS ###
 outlier_columns = list(df.columns[:8])
 
+""" 
+    WHY WE IDENTIFY EXTREME OUTLIERS BEFORE FILLING MISSING VALUES:
+
+        Identifying the extreme outliers before filling missing values,
+        because there's a significant amount of NaN data of column "Age".
+    Pros: 
+        Maintains original data distributin.
+        Avoids skewing the analysis: Filling missing values, 
+        especially if there are many, can significantly alter the distribution 
+        of our data. If we calculate outliers after filling in missing values, 
+        especially with a central tendency measure like the median, 
+        we risk misidentifying what is truly an outlier.
+"""
+
 
 def mark_outliers_iqr(dataset, col):
     """
@@ -128,6 +142,10 @@ def plot_binary_outliers(dataset, col, outlier_col):
 plot_binary_outliers(dataset=dataset, col=col, outlier_col=col + "_outlier")
 
 
+# *** DROP THE EXTREME VALUES ***#
+#!!!!!!!!!!!
+
+
 ### IDENTIFY COLUMNS WITH MISSING/NaN values ###
 df.isnull()
 missing_values = df.isnull().any()
@@ -148,6 +166,8 @@ def age_distribution():
 age_distribution()
 
 """
+WHY WE CHOSE median() INSTEAD OF mean():
+
 Show the distribution of Age after being filled, as to why we choose median()
 It leans more towards a skewed distribution rather than a normal,
 since there's a significant amount of data points in the lower age range below 40.
