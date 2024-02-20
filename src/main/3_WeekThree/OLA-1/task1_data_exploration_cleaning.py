@@ -228,7 +228,6 @@ data = data[data["Name"] != "Unknown climber"]
 # 4. Data Visualization
 # --------------------------------------------------------------
 
-
 def data_visualization_plots():
 
     # Distribution of Age after filling missing values
