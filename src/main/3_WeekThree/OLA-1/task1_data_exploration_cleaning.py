@@ -147,13 +147,13 @@ outlier_columns = ["Age"]
 outliers_removed_df = df.copy()
 for col in outlier_columns:
     dataset = mark_outliers_iqr(outliers_removed_df, col)
-    
+
     # Get indices of rows with outliers and where "Age" is greater than 80
     outlier_indices = dataset[(dataset[col + "_outlier"]) & (dataset[col] > 80)].index
 
     # Drop rows with outliers where "Age" is greater than 80
     outliers_removed_df = outliers_removed_df.drop(index=outlier_indices)
-    
+
     # Dropping the outlier marking column
     outliers_removed_df.drop(columns=[col + "_outlier"], inplace=True)
 
@@ -161,7 +161,6 @@ outliers_removed_df.info()
 
 df = outliers_removed_df
 df.info()
-
 
 
 ### IDENTIFY COLUMNS WITH MISSING/NaN values ###
@@ -227,6 +226,7 @@ data = data[data["Name"] != "Unknown climber"]
 # --------------------------------------------------------------
 # 4. Data Visualization
 # --------------------------------------------------------------
+
 
 def data_visualization_plots():
 
