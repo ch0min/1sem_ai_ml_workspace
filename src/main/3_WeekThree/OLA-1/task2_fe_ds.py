@@ -115,4 +115,3 @@ plt.show()
 
 # Creating pickle file
 df.to_pickle("../OLA-1/data/interim/task2_data_processed.pkl")
-
