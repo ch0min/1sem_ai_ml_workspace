@@ -5,12 +5,17 @@ import pickle
 
 # ************************************************************** #
 #                                                                #
-#                        DATA WRANGLING                          #
+#                    AI RECAP MINI PROJECT                       #
 #                                                                #
 # ************************************************************** #
 
 """
-OBS: My project is made with the "interactive window" for python instead of a notebook.
+OBS: 
+My project is made with the "interactive window" .py for python instead of a notebook,
+but for better readability I've converted my project into a notebook,
+both files can be found inside the folder: "./9_WeekNine_DeepLearning/ai_recap_mini_project".
+
+github: `https://github.com/ch0min/1sem_ai_ml_workspace/tree/main/src/main/9_WeekNine_DeepLearning/ai_recap_mini_project`
 """
 
 # --------------------------------------------------------------
@@ -68,7 +73,7 @@ df_cleaned = df.dropna(axis=1, how="all")
 # Handling missing values:
 """
 First I've decided to remove the data that doesn't have a price,
-instead of filling the values without "price", to avoid skewed data.
+instead of filling the data without "price", to avoid skewed data.
 
 Secondly "reviews_per_month" will be filled with "0" reviews per month,
 assuming no reviews mean the listing is new or not popular.
@@ -96,8 +101,6 @@ plt.show()
 
 df_cleaned
 
-df_cleaned.info()
-
 
 # Removing Outliers using the IQR Range (function used in OLA-1):
 def remove_outliers_iqr(dataset, col):
@@ -111,12 +114,8 @@ def remove_outliers_iqr(dataset, col):
     the IQR below the first quartile and above the third quartile.
 
     Args:
-        dataset (pd.DataFrame): The dataset
-        col (string): The column you want apply outlier detection to
-
-    Returns:
-        pd.DataFrame: The original dataframe with an extra boolean column
-        indicating whether the value is an outlier or not.
+        dataset (pd.DataFrame): The dataset.
+        col (string): The column you want apply outlier detection to.
     """
 
     Q1 = dataset[col].quantile(0.25)
@@ -227,10 +226,10 @@ df_pca["Cluster"] = df_transformed["cluster"].values
 # Getting the centroids from the model:
 centroids = kmeans.cluster_centers_
 
-# Transforming centropids using the same PCA to get them into the same space as the plot:
+# Transforming centroids using the same PCA to get them into the same space as the plot:
 centroids_pca = pca.transform(centroids)
 
-# Plotting the cluasters:
+# Plotting the clusters:
 plt.figure(figsize=(10, 8))
 sns.scatterplot(
     x="pca_1",
@@ -318,6 +317,6 @@ In the end I've presented the feature importances as determined by the Random Fo
 This analysis highlights the most significant features influencing the prediction of the prices.
 
 If I had more time I would have validated and tuned the hyperparameters, and used techniques such as,
-cross-validation. I could also have predicted the F1-score. 
+cross-validation or gridsearch. I could also have predicted the F1-score. 
 Overall I'm satisfied with this small project's result.
 """
